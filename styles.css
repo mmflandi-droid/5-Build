@@ -1,4 +1,4 @@
-/* CSS by Christina Carrasquilla, iteration by */
+/* CSS by Christina Carrasquilla, iteration by Madison Flandi*/
 
 /* ===== Color Palette ===== 
 
@@ -12,39 +12,40 @@
 */
 
 /* ===== GLOBAL (Base) Styles ===== */
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
     font-family: Helvetica, Arial, sans-serif;
-    margin: 0;
+    line-height: 1.6;
     background-color: #0f172a;
     color: #e2e8f0;
-    min-width:500px;
-    display:grid;
-    grid-template-columns:1fr;
+   padding: 1rem;
+   display: grid;
+   grid-template-columns: 1fr;
 }
 
 header {
-    background-color: #1e293b;
+    background-color: #1a1a2e;
+    color: #fff;
     text-align: center;
     padding: 1.5rem;
+    border-radius: 8px;
 }
 
 header h1 {
-    margin: 0;
-}
-
-header p {
-    margin-top: 0.5rem;
-    color: #94a3b8;
-}
-
-nav {
-    background-color: #020617;
+    margin-bottom: 0.5rem;
 }
 
 nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 nav a {
@@ -53,24 +54,51 @@ nav a {
     padding: 0.5rem;
     display: block;
     border-left: 4px solid #38bdf8;
-    margin: .25rem;
+    margin: 0.25rem;
 }
 
-nav a:hover {
-    background-color: #334155;
+nav a:hover,
+nav a.active {
+    background-color: #0f3460;
+    color:#fff;
 }
 
 main {
-    padding: 1rem;
+   padding: 1rem;
+}
+
+section{
+    background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 img {
-    width:100%;
+    width: 100%;
+    max-width:100%;
+    height: auto;
+  border-radius: 6px;
+  display: block;
+  margin-top: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #38bdf8;
+  padding-left: 1rem;
+  margin-top: 1rem;
+  color: #94a3b8;
 }
 
 #screenings, #workshops, #collaborations {
     background-color: #1e293b;
-    padding: 1rem;
     padding: 1rem;
     border-left: 4px solid #38bdf8;
 }
@@ -78,7 +106,6 @@ img {
 aside {
     background-color: #38bdf8;
     color: #1e293b;
-    padding: 1rem;
     padding: 1rem;
 }
 
@@ -89,6 +116,7 @@ a {
     padding:1rem 2rem;
     text-decoration:none;
     text-align:center;
+    margin-top: 1rem;
 }
 a:hover {
     color:#020617;
@@ -96,16 +124,32 @@ a:hover {
 }
 
 footer {
-    background-color: #020617;
     text-align: center;
     padding: 1rem;
     margin-top: 1rem;
+    color:#94a3b8;
 }
 
-/* ===== Media Query (Medium) ===== */
-/* write a media query for a screen with at least 800px */
-/* change the body's grid template to 1fr 300px */
-/* target the header, nav, and footer and style their grid-column to 1/-1 */
-/* target the nav and display it flex, spaceed around */
-/* target the .card-row to display flex */
-/* target the sections in .card-row witha width for 30% */
+@media (min-width:800px){
+    body{
+        grid-template-columns: 1fr 300px;
+    }
+
+    header, nav, footer{
+        grid-column: 1/-1;
+    }
+
+    nav ul{
+        display:flex;
+        justify-content: space-around;
+    }
+
+    .card-row{
+        display: flex;
+        gap: 1rem
+    }
+
+    .card-row section{
+        width:30%;
+    }
+}
